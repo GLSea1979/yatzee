@@ -12,7 +12,6 @@ function randomize() {
   var d3 = Math.floor(Math.random() * 6) + 1;
   var d4 = Math.floor(Math.random() * 6) + 1;
   var d5 = Math.floor(Math.random() * 6) + 1;
-  console.log(d1);
 
   dieOne.innerHTML = d1;
   dieTwo.innerHTML = d2;
@@ -22,10 +21,15 @@ function randomize() {
 
 }
 function firstDie() {
-  var needsAname = document.getElementById('dieSix');
+  var dieSix = document.getElementById('dieSix');
   var d6 = Math.floor(Math.random() * 6) + 1;
   dieSix.innerHTML = d6;
 }
+function handleDiceRoll(event) {
+  event.preventDefault();
+  // grab dice that you want to keep, 
+  firstDie();
+  randomize();
+}
 
-firstDie();
-randomize();
+hand.addEventListener('click', handleDiceRoll);
